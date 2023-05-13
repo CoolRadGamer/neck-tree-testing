@@ -26,7 +26,7 @@ addLayer("cn", {
     cols:4,
     11: {
 	title: "Vampirism",	
-        description: "",
+        description: "multiplies neck gain by two.",
         cost: new Decimal(10),
        
     },
