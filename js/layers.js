@@ -4,7 +4,7 @@ addLayer("cn", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(1),
+		points: new Decimal(0),
     }},
     color: "#2400ff",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
@@ -26,8 +26,8 @@ addLayer("cn", {
     cols:4,
     11: {
 	title: "Vampirism",	
-        description: "multiplies neck gain by two.",
-        cost: new Decimal(10),
+        description: "multiplies neck and point gain by two.",
+        cost: new Decimal(2),
        
     },
 		
@@ -49,7 +49,7 @@ addLayer("b", {
     position: 0, // Horizontal position within a row. By default it uses the layer id and sorts in alphabetical order
     startData() { return {
         unlocked: true,
-		points: new Decimal(1),
+		points: new Decimal(0),
     }},
     color: "#990026",
     requires: new Decimal("1e10"), // Can be a function that takes requirement increases into account
