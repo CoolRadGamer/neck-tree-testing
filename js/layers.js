@@ -15,44 +15,22 @@ addLayer("cn", {
     exponent: 0.5, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
-	    if (hasUpgrade('cn', 11)) mult = mult.times(player.cn.points.plus(10))
-	    if (hasUpgrade('cn', 12)) mult = mult.plus(100).pow(player.cn.points.pow(0.1))
-	    if (player.b.points.gte(2)) mult = mult.pow(player.b.points)
-	     if (hasUpgrade('cn', 13)) mult = mult.tetrate(player.cn.points.tetrate(player.b.points.times(player.b.points.times(0.01)).plus(1)))
-	    if (hasUpgrade('b', 14)) mult = mult.tetrate(player.cn.points)
+	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
 	    return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
-        return new Decimal(2)
+        return new Decimal(1)
     },
 	upgrades: {
     rows: 1,
     cols:4,
     11: {
 	title: "Vampirism",	
-        description: "multiply neck and point gain by necks :kekw:",
+        description: "",
         cost: new Decimal(10),
        
     },
-		12: {
-	title: "Oh no",	
-        description: "The necks learn CRG balancing",
-        cost: new Decimal("e1e50"),
-       
-    },
-			13: {
-	title: "The Neckoning Part 1",	
-        description: "Neckst comes Inflation.",
-        cost: new Decimal("10^^100"),
-       
-    },
 		
-			14: {
-	title: "The Neckoning Part 2",	
-        description: "Raise your necks from the dead and call it neckromancy, bc jac said it should be in there somehow",
-        cost: new Decimal("10^^500"),
-       
-    },
 },
 	passiveGeneration() {
 	if(player.b.points.gte(3)) return(player.b.points)
@@ -74,12 +52,12 @@ addLayer("b", {
 		points: new Decimal(1),
     }},
     color: "#990026",
-    requires: new Decimal("10^^100"), // Can be a function that takes requirement increases into account
+    requires: new Decimal("1e10"), // Can be a function that takes requirement increases into account
     resource: "booxters", // Name of prestige currency
     baseResource: "CRG necks", // Name of resource prestige is based on
     baseAmount() {return player.cn.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 0.5, // Prestige currency exponent
+    exponent: 01, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	   
