@@ -17,7 +17,7 @@ addLayer("cn", {
         mult = new Decimal(1)
 	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
 	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.log10())
-	   
+	    if (hasUpgrade('cn', 14)) mult = mult.times(3)
 	    return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -41,6 +41,11 @@ addLayer("cn", {
 	title: "Adam's apple",
 	description: "now there is a lump in your necks, boosts neck gain based on points",
 	cost: new Decimal(40)
+    },
+    14: {
+	title: "bad joke",
+        description: "it's CRG's neck, of course this would happen. triple neck gain"
+	cost: new Decimal(69)
     },
 		
 },
