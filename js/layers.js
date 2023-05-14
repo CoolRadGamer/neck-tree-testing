@@ -16,7 +16,7 @@ addLayer("cn", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
-	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.log10())
+	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.log10().plus(1))
 	    if (hasUpgrade('cn', 14)) mult = mult.times(3)
 	    return mult
     },
@@ -34,12 +34,12 @@ addLayer("cn", {
     },
     12: {
 	title: "Giraffe DNA",
-	description: "necks are now longer, boosts point gain based on necks",
+	description: `necks are now longer, boosts point gain based on necks (currently: ${player.cn.points.pow(0.3).plus(1)}x)`,
 	cost: new Decimal(12)
     },
     13: {
 	title: "Adam's apple",
-	description: "now there is a lump in your necks, boosts neck gain based on points",
+	description: `now there is a lump in your necks, boosts neck gain based on points (currently: ${player.points.log10().plus(1)}x)`,
 	cost: new Decimal(40)
     },
     14: {
