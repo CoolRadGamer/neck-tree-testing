@@ -12,14 +12,14 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "0.0",
-	name: "Literally nothing",
+	num: "1.0",
+	name: "The Neckst Step",
 }
 
 let changelog = `<h1>Changelog:</h1><br>
-	<h3>v0.0</h3><br>
-		- Added things.<br>
-		- Added stuff.`
+	<h3>v1.0</h3><br>
+		Added upgrades.<br>
+		Balanced up to 1 million CRG necks.`
 
 let winText = `Congratulations! You beat the game I guess, there won't be any more bc I am lazy (and because you hit BE	limit lol), this was done to spite jacorb, pi and yahtzee, btw YA WIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIN!!!!!!!!!!`
 
