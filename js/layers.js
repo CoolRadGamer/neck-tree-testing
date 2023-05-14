@@ -29,7 +29,7 @@ addLayer("cn", {
     11: {
 	title: "Vampirism",	
         description: "multiplies neck and point gain by two.",
-        cost: new Decimal(2),
+        cost: new Decimal(2)
        
     },
     12: {
@@ -55,6 +55,14 @@ addLayer("cn", {
         description: "it's CRG's neck, of course this would happen. triple neck gain",
 	cost: new Decimal(69)
     },
+    21: {
+	title: "Sponsored by Dracula",
+	description: "i vant to succ ur blood. (boosts point gain based on points)",
+	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+            effect() {
+                return player.points.plus(10).log10().div(2)
+            },
+	cost: new Decimal(500)
 		
 },
 	passiveGeneration() {
