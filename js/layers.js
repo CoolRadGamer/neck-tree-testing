@@ -16,7 +16,7 @@ addLayer("cn", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
-	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.log10().plus(1))
+	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.plus(1).log10())
 	    if (hasUpgrade('cn', 14)) mult = mult.times(3)
 	    return mult
     },
@@ -46,7 +46,7 @@ addLayer("cn", {
 	description: "now there is a lump in your necks, boosts neck gain based on points",
 	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
             effect() {
-                return player.points.log10().plus(1)
+                return player.points.plus(1).log10()
             },
 	cost: new Decimal(40)
     },
