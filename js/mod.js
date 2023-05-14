@@ -43,6 +43,7 @@ function getPointGen() {
 
 	let gain = new Decimal(1)
 	if (hasUpgrade('cn', 11)) gain = gain.times(2)
+	if (hasUpgrade('cn', 12)) gain = gain.times(player.cn.points.pow(0.2).plus(1))
 	return gain
 }
 
