@@ -41,6 +41,7 @@ addLayer("cn", {
 	title: "Adam's apple",
 	description: "now there is a lump in your necks, boosts neck gain based on points",
 	cost: new Decimal(40)
+    },
 		
 },
 	passiveGeneration() {
