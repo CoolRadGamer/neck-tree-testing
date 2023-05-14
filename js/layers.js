@@ -34,7 +34,7 @@ addLayer("cn", {
     },
     12: {
 	title: "Giraffe DNA",
-	description: `necks are now longer, boosts point gain based on necks (currently: ${player.cn.points.pow(0.3).plus(1)}x)`,
+	description: `necks are now longer, boosts point gain based on necks (currently: ${points.pow(0.3).plus(1)}x)`,
 	cost: new Decimal(12)
     },
     13: {
