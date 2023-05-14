@@ -44,7 +44,7 @@ addLayer("cn", {
     },
     14: {
 	title: "bad joke",
-        description: "it's CRG's neck, of course this would happen. triple neck gain"
+        description: "it's CRG's neck, of course this would happen. triple neck gain",
 	cost: new Decimal(69)
     },
 		
