@@ -16,6 +16,7 @@ addLayer("cn", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
+	   
 	    return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -30,6 +31,10 @@ addLayer("cn", {
         cost: new Decimal(2),
        
     },
+    12: {
+	title: "Giraffe DNA",
+	description: "necks are now longer, boosts point gain based on necks",
+	cost: new Decimal(12)
 		
 },
 	passiveGeneration() {
