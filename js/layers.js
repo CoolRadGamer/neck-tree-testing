@@ -18,6 +18,7 @@ addLayer("cn", {
 	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
 	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.plus(10).log10())
 	    if (hasUpgrade('cn', 14)) mult = mult.times(3)
+	    if (hasUpgrade('cn', 22)) mult = mult.times(player.cn.points.plus(10).log10())
 	    return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -63,6 +64,15 @@ addLayer("cn", {
                 return player.points.plus(10).log10().div(2).plus(1).pow(2)
             },
 	cost: new Decimal(500)
+    },
+    22: {
+	title: "neckodiles",
+	description: "spread the word! they say 'neckneckneckneckneckneck' (boost neck gain based on necks)",
+	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+            effect() {
+                return player.cn.points.plus(10).log10().div(2).plus(2)
+            },
+	cost: new Decimal(20000)
     },
 		
 },
