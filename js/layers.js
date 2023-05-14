@@ -63,6 +63,7 @@ addLayer("cn", {
                 return player.points.plus(10).log10().div(2).plus(1)
             },
 	cost: new Decimal(500)
+    },
 		
 },
 	passiveGeneration() {
