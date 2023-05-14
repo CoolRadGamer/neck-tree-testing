@@ -34,12 +34,20 @@ addLayer("cn", {
     },
     12: {
 	title: "Giraffe DNA",
-	description: "necks are now longer, boosts point gain based on necks (formula: (x^0.3)+1, do the math yourself)",
+	description: "necks are now longer, boosts point gain based on necks",
+	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+            effect() {
+                return player.cn.points.pow(0.3).plus(1)
+            },
 	cost: new Decimal(12)
     },
     13: {
 	title: "Adam's apple",
-	description: "now there is a lump in your necks, boosts neck gain based on points (formula: log(x)+1, do the math yourself)",
+	description: "now there is a lump in your necks, boosts neck gain based on points",
+	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
+            effect() {
+                return player.points.log10().plus(1)
+            },
 	cost: new Decimal(40)
     },
     14: {
