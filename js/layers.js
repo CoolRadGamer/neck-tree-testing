@@ -16,6 +16,7 @@ addLayer("cn", {
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	    if (hasUpgrade('cn', 11)) mult = mult.times(2)
+	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.log10())
 	   
 	    return mult
     },
@@ -36,6 +37,10 @@ addLayer("cn", {
 	description: "necks are now longer, boosts point gain based on necks",
 	cost: new Decimal(12)
     },
+    13: {
+	title: "Adam's apple",
+	description: "now there is a lump in your necks, boosts neck gain based on points",
+	cost: new Decimal(40)
 		
 },
 	passiveGeneration() {
