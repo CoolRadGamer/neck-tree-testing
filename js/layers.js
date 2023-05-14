@@ -24,8 +24,8 @@ addLayer("cn", {
         return new Decimal(1)
     },
 	upgrades: {
-    rows: 1,
-    cols:4,
+    rows: 3,
+    cols: 4,
     11: {
 	title: "Vampirism",	
         description: "multiplies neck and point gain by two.",
