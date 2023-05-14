@@ -35,6 +35,7 @@ addLayer("cn", {
 	title: "Giraffe DNA",
 	description: "necks are now longer, boosts point gain based on necks",
 	cost: new Decimal(12)
+    },
 		
 },
 	passiveGeneration() {
