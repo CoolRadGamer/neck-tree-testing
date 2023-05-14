@@ -60,7 +60,7 @@ addLayer("cn", {
 	description: "i vant to succ ur blood. (boosts point gain based on points)",
 	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
             effect() {
-                return player.points.plus(10).log10().div(2)
+                return player.points.plus(10).log10().div(2).plus(1)
             },
 	cost: new Decimal(500)
 		
