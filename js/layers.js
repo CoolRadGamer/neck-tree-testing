@@ -67,7 +67,7 @@ addLayer("cn", {
     },
     22: {
 	title: "neckodiles",
-	description: "spread the word! they say 'neckneckneckneckneckneck' (boost neck gain based on necks)",
+	description: "spread the word! they say 'neckneckneckneck' (boost neck gain based on necks)",
 	effectDisplay() { return format(upgradeEffect(this.layer, this.id)) + "x" },
             effect() {
                 return player.cn.points.plus(10).log10().div(2).plus(2)
