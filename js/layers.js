@@ -72,7 +72,7 @@ addLayer("cn", {
             effect() {
                 return player.cn.points.plus(10).log10().div(2).plus(2)
             },
-	cost: new Decimal(20000)
+	cost: new Decimal(1000)
     },
 		
 },
