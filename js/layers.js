@@ -84,7 +84,7 @@ addLayer("cn", {
         {key: "c", description: "crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true}
-buyables: {
+    buyables: {
     11: {
 	title: "Neck Enhancers"
         cost(x) { return new Decimal(2000).mul(3^x) },
