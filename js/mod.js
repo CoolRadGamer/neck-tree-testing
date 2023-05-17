@@ -45,7 +45,7 @@ function getPointGen() {
 	if (hasUpgrade('cn', 11)) gain = gain.times(2)
 	if (hasUpgrade('cn', 12)) gain = gain.times(player.cn.points.pow(0.3).plus(1))
 	if (hasUpgrade('cn', 21)) gain = gain.times(player.points.plus(10).log10().div(2).plus(1).pow(2))
-	gain = gain.times((1.5^getBuyableAmount(player.layers.cn, 11))+1)
+	gain = gain.times((1.5^getBuyableAmount(cn, 11))+1)
 	return gain
 }
 
