@@ -83,12 +83,12 @@ addLayer("cn", {
     hotkeys: [
         {key: "c", description: "crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
+    layerShown(){return true},
     buyables: {
-    11: {
-	title: "Neck Enhancers"
+    	11: {
+	title: "Neck Enhancers",
         cost(x) { return new Decimal(2000).mul(3^x) },
-	effect(x) { return new Decimal(1.5^x) }
+	effect(x) { return new Decimal(1.5^x) },
         display() { return "Multiplies point gain by 1.5x per buyable.<br>Currently: "+format(this.effect())+"x<br>Cost: "+(this.cost())+" crg necks"},
         canAfford() { return player[this.layer].points.gte(this.cost()) },
         buy() {
