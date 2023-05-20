@@ -92,7 +92,7 @@ addLayer("cn", {
     tabFormat: [
     // insert random stuff
     ["buyable", 11 /* buyable id */]
-]
+],
 	passiveGeneration() {
 	if(player.b.points.gte(3)) return(player.b.points)
 	},
