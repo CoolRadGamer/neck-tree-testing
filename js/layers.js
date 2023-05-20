@@ -76,19 +76,11 @@ addLayer("cn", {
     },
 		
 },
-	passiveGeneration() {
-	if(player.b.points.gte(3)) return(player.b.points)
-	},
-    row: 0, // Row the layer is in on the tree (0 is the first row)
-    hotkeys: [
-        {key: "c", description: "crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
-    ],
-    layerShown(){return true},
     buyables: {
-    	11: {
-    title: "Neck Enhancers",
+    11: {
+        title: "Neck Enhancers",
         cost(x=getBuyableAmount(this.layer, this.id)) { return Decimal.pow(3, x).mul(2000) },
-    effect(x=getBuyableAmount(this.layer, this.id)) { return Decimal.pow(1.5, x) },
+        effect(x=getBuyableAmount(this.layer, this.id)) { return Decimal.pow(1.5, x) },
         display() { return "Multiplies point gain by 1.5x per buyable.<br>Currently: "+format(this.effect())+"x<br>Cost: "+(this.cost())+" crg necks"},
         canAfford() { return player[this.layer].points.gte(this.cost()) },
         buy() {
@@ -101,6 +93,15 @@ addLayer("cn", {
     // insert random stuff
     ["buyable", 11 /* buyable id */]
 ]
+	passiveGeneration() {
+	if(player.b.points.gte(3)) return(player.b.points)
+	},
+    row: 0, // Row the layer is in on the tree (0 is the first row)
+    hotkeys: [
+        {key: "c", description: "crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+    ],
+    layerShown(){return true},
+    
 }
 	
 })
