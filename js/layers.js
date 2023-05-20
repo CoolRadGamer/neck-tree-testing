@@ -89,10 +89,6 @@ addLayer("cn", {
         },
         
     },
-    tabFormat: [
-    // insert random stuff
-    ["buyable", 11 /* buyable id */]
-],
 	passiveGeneration() {
 	if(player.b.points.gte(3)) return(player.b.points)
 	},
@@ -103,7 +99,10 @@ addLayer("cn", {
     layerShown(){return true},
     
 }
-	
+   tabFormat: [
+    // insert random stuff
+    ["buyable", 11 /* buyable id */]
+],
 })
 addLayer("b", {
     name: "booxters", // This is optional, only used in a few places, If absent it just uses the layer id.
