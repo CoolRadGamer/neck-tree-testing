@@ -99,7 +99,7 @@ addLayer("cn", {
     ],
     layerShown(){return true},
     
-}
+
    tabFormat: [
     // insert random stuff
     ["buyable", 11 /* buyable id */]
