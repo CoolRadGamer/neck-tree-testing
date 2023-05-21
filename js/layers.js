@@ -102,7 +102,9 @@ addLayer("cn", {
 
    tabFormat: [
 "main-display",
+"blank",
 "prestige-button",
+"blank",
 "upgrades",
 "buyables"
 ]
