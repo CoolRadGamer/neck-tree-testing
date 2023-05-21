@@ -101,6 +101,8 @@ addLayer("cn", {
     
 
    tabFormat: [
+"main-display",
+    ["prestige-button"],
 "upgrades",
 "buyables"
 ]
