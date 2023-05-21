@@ -89,6 +89,7 @@ addLayer("cn", {
         },
         
     },
+    },
 	passiveGeneration() {
 	if(player.b.points.gte(3)) return(player.b.points)
 	},
