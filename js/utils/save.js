@@ -275,4 +275,4 @@ var saveInterval = setInterval(function () {
 		return;
 	if (player.autosave)
 		save();
-}, 5000);
+}, 2000);
