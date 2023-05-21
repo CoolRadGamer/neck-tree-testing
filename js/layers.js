@@ -101,14 +101,9 @@ addLayer("cn", {
     
 
    tabFormat: [
-    ["upgrade", 11],
-    ["upgrade", 12],
-    ["upgrade", 13],
-    ["upgrade", 14],
-    ["upgrade", 21],
-    ["upgrade", 22],
-    ["buyable", 11 /* buyable id */]
-],
+"upgrades",
+"buyables"
+]
 })
 addLayer("b", {
     name: "booxters", // This is optional, only used in a few places, If absent it just uses the layer id.
