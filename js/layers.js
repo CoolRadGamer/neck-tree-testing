@@ -101,7 +101,12 @@ addLayer("cn", {
     
 
    tabFormat: [
-    // insert random stuff
+    ["upgrade", 11]
+    ["upgrade", 12]
+    ["upgrade", 13]
+    ["upgrade", 14]
+    ["upgrade", 21]
+    ["upgrade", 22]
     ["buyable", 11 /* buyable id */]
 ],
 })
