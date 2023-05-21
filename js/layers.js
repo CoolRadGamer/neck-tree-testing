@@ -87,7 +87,7 @@ addLayer("cn", {
             player[this.layer].points = player[this.layer].points.sub(this.cost())
             setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
         },
-        unlocked() { return hasUpgrade('cn', 22)}
+        unlocked() { if (hasUpgrade('cn', 22)) return true}
     },
     },
 	passiveGeneration() {
