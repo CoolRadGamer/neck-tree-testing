@@ -63,7 +63,7 @@ addLayer("cn", {
             effect() {
                 return player.points.plus(10).log10().div(2).plus(1).pow(2)
             },
-	cost: new Decimal(500)
+	cost: new Decimal(200)
     },
     22: {
 	title: "neckodiles",
@@ -72,7 +72,7 @@ addLayer("cn", {
             effect() {
                 return player.cn.points.plus(10).log10().div(2).plus(2)
             },
-	cost: new Decimal(1000)
+	cost: new Decimal(750)
     },
 		
 },
