@@ -1,3 +1,4 @@
+let clickyclicks = 0
 addLayer("cn", {
     name: "crg's neck", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "cn", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -93,6 +94,13 @@ addLayer("cn", {
 	passiveGeneration() {
 	if(player.b.points.gte(3)) return(player.b.points)
 	},
+    clickables: {
+    11: {
+        display() {return "clicky button!<br>" + format(clickyclicks)},
+        onClick() {clickyclicks += 1},
+    }
+    
+},
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
         {key: "c", description: "crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
@@ -104,6 +112,8 @@ addLayer("cn", {
 "main-display",
 "blank",
 "prestige-button",
+"blank",
+"clickables",
 "blank",
 "upgrades",
 ["buyable", 11]
