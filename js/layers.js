@@ -113,7 +113,7 @@ addLayer("cn", {
 "blank",
 "prestige-button",
 "blank",
-"clickables",
+["clickables", 11],
 "blank",
 "upgrades",
 ["buyable", 11]
