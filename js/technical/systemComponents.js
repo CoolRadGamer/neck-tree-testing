@@ -126,8 +126,8 @@ var systemComponents = {
 		<br><br>
 		<div class="link" onclick="showTab('changelog-tab')">Changelog</div><br>
         <span v-if="modInfo.discordLink"><a class="link" v-bind:href="modInfo.discordLink" target="_blank">{{modInfo.discordName}}</a><br></span>
-        <a class="link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" v-bind:style="modInfo.discordLink ? {'font-size': '16px'} : {}">idk where this takes you</a><br>
-        <a class="link" href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" v-bind:style="{'font-size': '16px'}">some place</a><br>
+        <h3>this used to be a rickroll</h3><br>
+        <p>but rickrolls are banned on galaxy :(</p><br>
 		<br><br>
         Time Played: {{ formatTime(player.timePlayed) }}<br><br>
         <h3>Hotkeys</h3><br>
