@@ -1,4 +1,4 @@
-let clickyclicks = 0
+
 addLayer("cn", {
     name: "crg's neck", // This is optional, only used in a few places, If absent it just uses the layer id.
     symbol: "cn", // This appears on the layer's node. Default is the id with the first letter capitalized
@@ -6,6 +6,7 @@ addLayer("cn", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+	        clickyclicks: new Decimal(0)
     }},
     color: "#2400ff",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
@@ -96,8 +97,8 @@ addLayer("cn", {
 	},
     clickables: {
     11: {
-        display() {return "clicky button!<br>" + format(clickyclicks)},
-        onClick() {clickyclicks += 1},
+        display() {return "clicky button!<br>" + format(player[this.layer].clickyclicks)},
+        onClick() {player[this.layer].clickyclicks player[this.layer].clickyclicks.plus(1)},
     }
     
 },
