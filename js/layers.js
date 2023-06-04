@@ -98,6 +98,7 @@ addLayer("cn", {
     clickables: {
     11: {
         display() {return "clicky button!<br>" + format(player[this.layer].clickyclicks)},
+	canClick() {return true},
         onClick() {player[this.layer].clickyclicks = player[this.layer].clickyclicks.plus(1)},
     }
     
