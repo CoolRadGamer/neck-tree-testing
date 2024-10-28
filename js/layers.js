@@ -6,9 +6,9 @@ addLayer("cn", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
-	        clickyclicks: new Decimal(0)
+	    clickyclicks: new Decimal(0)
     }},
-    color: "#2400ff",
+    color: "#390073",
     requires: new Decimal(10), // Can be a function that takes requirement increases into account
     resource: "CRG necks", // Name of prestige currency
     baseResource: "points", // Name of resource prestige is based on
@@ -21,6 +21,7 @@ addLayer("cn", {
 	    if (hasUpgrade('cn', 13)) mult = mult.times(player.points.plus(10).log10())
 	    if (hasUpgrade('cn', 14)) mult = mult.times(3)
 	    if (hasUpgrade('cn', 22)) mult = mult.times(player.cn.points.plus(10).log10())
+        if (hasUpgrade('b', 12)) mult = mult.times(2)
 	    return mult
     },
     gainExp() { // Calculate the exponent on main currency from bonuses
@@ -84,16 +85,16 @@ addLayer("cn", {
         cost(x=getBuyableAmount(this.layer, this.id)) { return Decimal.pow(3, x).mul(2000) },
         effect(x=getBuyableAmount(this.layer, this.id)) { return Decimal.pow(1.5, x) },
         display() { return "Multiplies point gain by 1.5x per buyable.<br>Currently: "+format(this.effect())+"x<br>Cost: "+(this.cost())+" crg necks"},
-        canAfford() { return player[this.layer].points.gte(this.cost()) },
-        buy() {
+        canAfford: function() { return player[this.layer].points.gte(this.cost()) },
+        buy: function() {
             player[this.layer].points = player[this.layer].points.sub(this.cost())
             setBuyableAmount(this.layer, this.id, getBuyableAmount(this.layer, this.id).add(1))
         },
-        unlocked() { if (hasUpgrade('cn', 22)) return true}
+        unlocked() { if (hasUpgrade('b', 12)) return true},
     },
     },
 	passiveGeneration() {
-	if(player.b.points.gte(3)) return(player.b.points)
+	if(hasMilestone("b",1)) return(player.b.points.div(100))
 	},
     clickables: {
     11: {
@@ -105,7 +106,7 @@ addLayer("cn", {
 },
     row: 0, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "c", description: "crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "c", description: "c - crg's neck reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
     layerShown(){return true},
     
@@ -128,14 +129,18 @@ addLayer("b", {
     startData() { return {
         unlocked: true,
 		points: new Decimal(0),
+        clickyclicks: new Decimal(0)
     }},
-    color: "#990026",
-    requires: new Decimal("1e10"), // Can be a function that takes requirement increases into account
+    color: "#990025",
+    requires() {
+         scale = player.b.points.times(0.02).plus(1.3).pow(player.b.points)
+         return new Decimal(2500).times(scale)
+        }, // Can be a function that takes requirement increases into account
     resource: "booxters", // Name of prestige currency
     baseResource: "CRG necks", // Name of resource prestige is based on
     baseAmount() {return player.cn.points}, // Get the current amount of baseResource
     type: "static", // normal: cost to gain currency depends on amount gained. static: cost depends on how much you already have
-    exponent: 01, // Prestige currency exponent
+    exponent: 1, // Prestige currency exponent
     gainMult() { // Calculate the multiplier for main currency from bonuses
         mult = new Decimal(1)
 	   
@@ -149,30 +154,85 @@ addLayer("b", {
     cols:4,
     11: {
 	title: "Information",	
-        description: "this is coming soon (not really)",
+        description: "Booxter upgrades WILL NOT SPEND YOUR BOOXTERS (because that part of tmt games just adds arbitrary length idk)",
         cost: new Decimal(0),
        
     },
+    12: {
+	title: "Booxter seats",	
+        description: "Double crg neck gain and unlock neck enhancers (cn buyable)",
+        cost: new Decimal(2),
+        pay() {return 0}
+    },
 },
 	autoPrestige() {
-	if (player.b.points.gte(10) && player.b.points.lt(100)) return true
-	if(player.b.points.gte(100)) return false
-},
+	if (hasMilestone("b",2)) return true
+    },
     row: 1, // Row the layer is in on the tree (0 is the first row)
     hotkeys: [
-        {key: "b", description: "booxter reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
+        {key: "b", description: "b - booxter reset", onPress(){if (canReset(this.layer)) doReset(this.layer)}},
     ],
-    layerShown(){return true}
-	
+    layerShown(){
+        if (player.cn.points.gte(1000) || player.b.points.gte(1)) return true
+    },
+	milestones: {
+        0: {
+            requirementDescription: "3 booxters",
+            effectDescription: "Automatically purchase crg neck upgrades.",
+            done() { return player.b.points.gte(3) }
+        },
+        1: {
+            requirementDescription: "5 booxters",
+            effectDescription: "Gain x% of your crg necks on reset per second, where x is the number of booxters you have.",
+            done() { return player.b.points.gte(5) }
+        },
+        2: {
+            requirementDescription: "10 booxters",
+            effectDescription: "Automatically booxter reset",
+            done() { return player.b.points.gte(10) },
+        },
+        3: {
+            requirementDescription: "15 booxters",
+            effectDescription: "Nothing for now (I can't get it to work lul)",
+            done() { return player.b.points.gte(15) },
+        },
+        
+    },
+    tabFormat: [
+        "main-display",
+        "blank",
+        "prestige-button",
+        ["display-text", function() {
+            ybEff = new Decimal(2).pow(player.b.points)
+            return "Your " + format(player.b.points, 0) + " booxters are multiplying point gain by " + format(ybEff)
+        }],
+        "blank",
+        "milestones",
+        "blank",
+        ["clickable", 11],
+        "blank",
+        "upgrades"
+    ],
+    clickables: {
+        11: {
+            display() {return "clicky button 2!<br>" + format(player[this.layer].clickyclicks)},
+        canClick() {return true},
+            onClick() {player[this.layer].clickyclicks = player[this.layer].clickyclicks.plus(1)},
+        }
+    },
+
+
+    
 	
 })
 let autoUpgrades1 = setInterval(function() {
-if (player.b.points.gte(10)) {
+if (hasMilestone("b",0)) {
 buyUpgrade("cn", 11)
 buyUpgrade("cn", 12)
 buyUpgrade("cn", 13)
 buyUpgrade("cn", 14)
+buyUpgrade("cn", 21)
+buyUpgrade("cn", 22)
 }
 },
 			       100)
-			       
