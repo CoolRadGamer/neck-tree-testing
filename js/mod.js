@@ -12,11 +12,13 @@ let modInfo = {
 
 // Set your version in num and name
 let VERSION = {
-	num: "1.0",
-	name: "The Neckst Step",
+	num: "1.1",
+	name: "Neck-romancy",
 }
 
-let changelog = `<h1>Changelog:</h1><br>
+let changelog = `<h1>Changelog:</h1><br><br>
+	<h3>v1.1 idk</h3><br>
+	Implemented booxters and milestones, "balanced" up to 20 booxters<br>I would do more but I'm tired of using tmt<br><br>
 	<h3>v1.0</h3><br>
 		Added upgrades.<br>
 		Balanced up to 1 million CRG necks.`
@@ -60,7 +62,7 @@ var displayThings = [
 
 // Determines when the game "ends"
 function isEndgame() {
-	return player.points.gte(new Decimal("10^^1e300"))
+	return player.b.points.gte(new Decimal("20"))
 }
 
 
